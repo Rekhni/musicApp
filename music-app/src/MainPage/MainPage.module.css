@@ -8,7 +8,7 @@
     grid-template-rows: 70px 1fr;
     margin: 0 auto;
     padding: 36px;
-    color: #fff;
+    /* color: #fff; */
     padding-left: 1%;
     padding-right: 1%;
   }
