@@ -1,0 +1,35 @@
+import classes from './Tracks__List.module.css';
+import Tracks__ListHead from '../Tracks__ListHead/Tracks__ListHead';
+import Tracks__Track from '../Tracks__Track/Tracks__Track';
+import { fakeState } from 'helpers/fakeState';
+import { useEffect, useState } from 'react';
+// eslint-disable-next-line no-unused-vars
+
+const Tracks__List = () => {
+  // Вешает класс loading на три секунды, а затем убирает его
+  const [loadingClass, setLoadingClass] = useState('loading');
+  useEffect(() => {
+    setTimeout(setLoadingClass, 3000, '');
+  });
+
+  const trackElements = fakeState.map((track) => (
+    <Tracks__Track
+      key={track.id}
+      logo={track.logo}
+      name={track.name}
+      author={track.author}
+      album={track.album}
+      duration={track.duration_in_seconds}
+      loadingClass={loadingClass}
+    />
+  ));
+
+  return (
+    <div className={classes.trackList}>
+      <Tracks__ListHead />
+      {trackElements}
+    </div>
+  );
+};
+
+export default Tracks__List;
