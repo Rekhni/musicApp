@@ -1,11 +1,11 @@
 import classes from './MusicPlayer.module.css';
-import ProgressBar from './ProgressBar/ProgressBar';
-import PlayerInterface from './PlayerInterface/PlayerInterface';
+import MusicPlayer__ProgressBar from '../MusicPlayer__progressBar/MusicPlayer__progressBar';
+import MusicPlayer__Interface from '../MusicPlayer__interface/MusicPlayer__interface';
 const MusicPlayer = () => {
   return (
     <div className={classes.musicPlayer}>
-      <ProgressBar />
-      <PlayerInterface />
+      <MusicPlayer__ProgressBar />
+      <MusicPlayer__Interface />
     </div>
   );
 };
