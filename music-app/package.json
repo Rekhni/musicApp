@@ -6,9 +6,11 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.0.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -24,7 +26,7 @@
     ]
   },
   "compilerOptions": {
-      "baseUrl": "src"
+    "baseUrl": "src"
   },
   "include": [
     "src"
@@ -42,7 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object":"^7.21.11", 
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint": "^8.43.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-react": "^7.32.2",

@@ -1,10 +1,9 @@
 import './App.css';
-import MainPage from './MainPage/MainPage';
+import EntryForm from 'pages/EntryForm/EntryForm';
+import { MainPage } from 'pages/MainPage/Components/MainPage';
 
 function App() {
-  return (
-    <MainPage />
-  );
+  return <MainPage />;
 }
 
 export default App;
