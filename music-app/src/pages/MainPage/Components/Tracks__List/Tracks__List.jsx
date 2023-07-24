@@ -1,31 +1,60 @@
 import * as S from './styles';
 import { Tracks__ListHead } from '../Tracks__ListHead/Tracks__ListHead';
 import { Tracks__Track } from '../Tracks__Track/Tracks__Track';
-import { fakeState } from 'helpers/fakeState';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setTracks,
+  setPlaylist1,
+  setPlaylist2,
+  setPlaylist3,
+} from 'store/tracksSlice';
+import { fetchAllPlaylists, fetchAllTracks } from 'helpers/DAL';
 
-// eslint-disable-next-line no-unused-vars
 
-export const Tracks__List = () => {
-  // Вешает класс loading на три секунды, а затем убирает его
+export const Tracks__List = ({ playlist }) => {
+  const dispatch = useDispatch();
+
+  let tracks = [];
+  // Вешает класс loading на время загрузки треков
   const [loadingClass, setLoadingClass] = useState('loading');
+
+  // Через свитч выбираю какой плейлист показывать
+  switch (playlist) {
+    case 'favorites':
+      tracks = useSelector((state) => state.tracks.favorites);
+      break;
+    case 'playlist1':
+      tracks = useSelector((state) => state.tracks.playlist1);
+      break;
+    case 'playlist2':
+      tracks = useSelector((state) => state.tracks.playlist2);
+      break;
+    case 'playlist3':
+      tracks = useSelector((state) => state.tracks.playlist3);
+      break;
+    default:
+      tracks = useSelector((state) => state.tracks.list);
+  }
+
+  // Загружаю все треки
   useEffect(() => {
-    setTimeout(setLoadingClass, 3000, '');
-  });
+    fetchAllTracks().then((data) => {
+      dispatch(setTracks(data));
+      setLoadingClass('');
+    });
+  }, []);
 
-  const [state, setState] = useState(fakeState);
-  const getTracks = () => {
-    debugger;
-    axios
-      .get('https://painassasin.online/catalog/track/all/')
-      .then((response) => setState(response.data));
-  };
+  // Загружаю все плейлисты и убираю в store
+  useEffect(() => {
+    fetchAllPlaylists().then((data) => {
+      dispatch(setPlaylist1(data[0].items));
+      dispatch(setPlaylist2(data[1].items));
+      dispatch(setPlaylist3(data[2].items));
+    });
+  }, []);
 
-  useEffect(() => getTracks(), []);
-
-
-  const trackElements = state.map((track) => (
+  const trackElements = tracks.map((track) => (
     <Tracks__Track
       key={track.id}
       logo={track.logo}
@@ -44,4 +73,3 @@ export const Tracks__List = () => {
     </S.TrackList>
   );
 };
-
