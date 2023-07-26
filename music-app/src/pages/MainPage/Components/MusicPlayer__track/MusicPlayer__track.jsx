@@ -1,10 +1,8 @@
 import * as S from './styles';
 import sprite from 'assets/img/icon/sprite.svg';
-import { useSelector } from 'react-redux';
 
-export const MusicPlayer__track = () => {
-  const currentTrack = useSelector((state) => state.tracks.currentTrack);
-  console.log(currentTrack);
+export const MusicPlayer__track = ({ audioAPI, currentTrack }) => {
+
   return (
     <S.PlayerTrack>
       <S.TrackLogo>
@@ -13,14 +11,9 @@ export const MusicPlayer__track = () => {
         </S.TrackLogoSvg>
       </S.TrackLogo>
       <div>
-        <S.Text>
-          <a href="http://">{currentTrack.name}</a>
-        </S.Text>
-        <S.Text>
-          <a href="http://">{currentTrack.author}</a>
-        </S.Text>
+        <S.Text>{currentTrack.name}</S.Text>
+        <S.Text>{currentTrack.author}</S.Text>
       </div>
-      <audio controls src={currentTrack.track_file} />
     </S.PlayerTrack>
   );
 };
