@@ -18,7 +18,7 @@ export const MainNav = () => {
         <use xlinkHref={`${sprite}#icon-burger`} />
       </S.BurgerSvg>
       <S.NavListContainer>
-        <S.NavList isVisible={isMenuVisible}>
+        <S.NavList $isVisible={isMenuVisible}>
           <MainNav__Link linkName={'Главное'} link="/" />
           <MainNav__Link linkName={'Мой плейлист'} link="/favorites" />
           <MainNav__Link linkName={'Выйти'} link="/login" logout={true} />
