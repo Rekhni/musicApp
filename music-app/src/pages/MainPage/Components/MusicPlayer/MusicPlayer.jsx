@@ -16,6 +16,6 @@ export const MusicPlayer = () => {
       <MusicPlayer__Interface audioAPI={audioAPI} currentTrack={currentTrack} />
       <audio ref={audioAPIRef} src={currentTrack.track_file} />
     </S.MusicPlayer>
-  );
+  );  
 };
 
