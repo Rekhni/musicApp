@@ -6,6 +6,7 @@ export const PlayerInterface = styled.div`
   align-items: center;
   padding: 10px;
   justify-content: space-between;
+
   `;
 
 

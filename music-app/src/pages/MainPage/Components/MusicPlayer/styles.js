@@ -1,9 +1,11 @@
 import { styled } from 'styled-components';
 
 export const MusicPlayer = styled.div`
-  /* grid-column: 1 / 3; */
-  $((props) => (props.$isPlayerVisible ? 'display: flex;' : 'display: none;'))
-  width: inherit;
+
+  ${(props) => (props.$isPlayerVisible ? 'display: flex;' : 'display: none;')}
+
+  display: flex;
+  width: inherit; 
   flex-direction: column;
   box-sizing: border-box;
   position: fixed;

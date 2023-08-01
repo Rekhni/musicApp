@@ -10,6 +10,7 @@ export const Search = styled.div`
 export const SearchSvg = styled.svg`
     width: 17px;
     height: 18px;
+    color: white;
     padding: 10px 15px 10px 8px;
   `;
   

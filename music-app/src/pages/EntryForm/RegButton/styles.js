@@ -18,6 +18,11 @@ export const Btn = styled.button`
   &:active {
     background-color: #d0cece;
   }
+
+  &:disabled {
+    opacity: 0.1;
+  }
+
   & a {
     margin: -1px -1px -1px -1px;
     border-radius: 6px;
