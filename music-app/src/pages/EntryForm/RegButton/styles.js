@@ -11,11 +11,10 @@ export const Btn = styled.button`
   font-size: 18px;
   line-height: 24px;
   cursor: pointer;
-
+  padding: 0;
   &:hover {
     background-color: #f4f5f6;
   }
-
   &:active {
     background-color: #d0cece;
   }
@@ -23,7 +22,7 @@ export const Btn = styled.button`
   &:disabled {
     opacity: 0.1;
   }
-  
+
   & a {
     margin: -1px -1px -1px -1px;
     border-radius: 6px;
@@ -53,3 +52,4 @@ export const Btn = styled.button`
     }
   }}
 `;
+
