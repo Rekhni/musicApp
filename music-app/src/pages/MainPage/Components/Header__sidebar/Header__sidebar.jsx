@@ -3,18 +3,20 @@ import sprite from 'assets/img/icon/sprite.svg';
 import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { setToken } from 'store/UISlice';
+import { useContext } from 'react';
+import { UserContext } from 'store/context';
 
 export const Header__Sidebar = () => {
   const dispatch = useDispatch();
-  const name = Cookies.get('user');
-  console.log(name);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+  const userName = currentUser.username;
   const handlerOnClick = () => {
-    Cookies.remove('user');
-    dispatch(setToken(Boolean(Cookies.get('user'))));
-  }
+    localStorage.removeItem('user');
+    setCurrentUser(null);
+  };
   return (
     <S.Container>
-      <p>{name}</p>
+      <p>{userName}</p>
       <S.Logout onClick={handlerOnClick}>
           <use xlinkHref={`${sprite}#icon-logout`} />
         </S.Logout>

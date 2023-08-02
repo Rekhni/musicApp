@@ -46,7 +46,6 @@ export const fetchLogin = (email, pass) => {
       },
     })
     .then((response) => {
-      console.log(response);
       return response.data;
     });
 };
